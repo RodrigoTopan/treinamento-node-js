@@ -55,7 +55,15 @@ class DatabaseSQL {
         this.HeroModel = {};
     }
     async conectar() {
-        const herokuPostgres = 'postgres://gpvlucdtcjcksq:049a1ac611e6c3c39064540ad5a02bf014a3bfcafa1f95f4584a7c44ed2cde15@ec2-54-197-233-123.compute-1.amazonaws.com:5432/ddbtgigrvl401e';
+        // pegamos a url do BANO NO Heroku
+        // caso estejamos em local ele pega a string e conecta com o banco
+        // caso esteja em produção, ele pega a url que vem do heroku
+        // importante a banco_url poder mudar a qualquer momento
+        // pois quem define é o proprio heroku
+        //database_url -> heroku
+        //banco_url -> nosso banco local
+        const herokuPostgres = process.env.DATABASE_URL || process.env.BANCO_URL;
+        //const herokuPostgres = 'postgres://gpvlucdtcjcksq:049a1ac611e6c3c39064540ad5a02bf014a3bfcafa1f95f4584a7c44ed2cde15@ec2-54-197-233-123.compute-1.amazonaws.com:5432/ddbtgigrvl401e';
         //definiimos as configurações da BAse de dados
         this.ImersaoNudesJS = new Sequelize(
             process.env.DATABASE_NAME || herokuPostgres,
