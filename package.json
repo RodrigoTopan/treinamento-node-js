@@ -19,8 +19,6 @@
     "hapi-auth-jwt2": "7.4.1",
     "joi": "13.1.0",
     "jsonwebtoken": "8.1.0",
-    "msnodesqlv8": "0.4.9",
-    "mssql": "4.1.0",
     "pg": "6.4.2",
     "pg-hstore": "2.3.2",
     "sequelize": "4.31.2",
