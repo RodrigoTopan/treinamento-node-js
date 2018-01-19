@@ -70,7 +70,7 @@ class DatabaseSQL {
         //const herokuPostgres = 'postgres://gpvlucdtcjcksq:049a1ac611e6c3c39064540ad5a02bf014a3bfcafa1f95f4584a7c44ed2cde15@ec2-54-197-233-123.compute-1.amazonaws.com:5432/ddbtgigrvl401e';
         //definiimos as configurações da BAse de dados
         this.ImersaoNudesJS = new Sequelize(
-            process.env.DATABASE_NAME || herokuPostgres,
+            herokuPostgres,
             {
                 dialect: 'postgres',
                 dialectOptions: {
@@ -106,24 +106,24 @@ class DatabaseSQL {
         });
         //fazemos o relacionamento entre as tabelas
         //adicionando o Classe do Heroi
-        //this.HeroModel.hasMany(this.ClasseModel);
+        this.HeroModel.hasMany(this.ClasseModel);
         //com o sync mapeamos e criamos as tabelas caso elas não existam
 
-        //await this.HeroModel.sync({ force: true })
-        //await this.ClasseModel.sync({ force: true })
+        await this.HeroModel.sync({ force: true })
+        await this.ClasseModel.sync({ force: true })
 
-        // await this.ClasseModel.create({
-        //     DESCRICAO: 'warrior'
-        // });
-        // await this.ClasseModel.create({
-        //     DESCRICAO: 'mago'
-        // });
-        // await this.ClasseModel.create({
-        //     DESCRICAO: 'rogue'
-        // });
-        // await this.ClasseModel.create({
-        //     DESCRICAO: 'archer'
-        // });
+        await this.ClasseModel.create({
+            DESCRICAO: 'warrior'
+        });
+        await this.ClasseModel.create({
+            DESCRICAO: 'mago'
+        });
+        await this.ClasseModel.create({
+            DESCRICAO: 'rogue'
+        });
+        await this.ClasseModel.create({
+            DESCRICAO: 'archer'
+        });
 
     }
 
