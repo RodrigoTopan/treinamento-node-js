@@ -13,7 +13,7 @@
 // heroku apps:create nome-do-app -> adicionar o endereco do heroku no seu git
 // 3o Criar o Procfile -> arquivo que informa como nossa aplicação será executada
 //executar
-// git add . && git commit -m "primeiro commit" && git push heroku master
+// 4O git add . && git commit -m "primeiro commit" && git push heroku master
 
 
 
@@ -22,6 +22,9 @@
 //dois scripts
 // 1 start -> para rodar nonodemon em ambiente dev
 // 2 prod -> para rodar com node_env production
+// 3 preinstall -> para instalar as dependecias globais antes de instalar as dependencias do projeto
+//Se esquecer o Heroku não vai saber que é o pm2
+//
 
 
 //no terminal

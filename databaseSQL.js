@@ -62,7 +62,11 @@ class DatabaseSQL {
         // pois quem define é o proprio heroku
         //database_url -> heroku
         //banco_url -> nosso banco local
-        const herokuPostgres = process.env.DATABASE_URL || process.env.BANCO_URL;
+
+        //Definimos no .env.prod que a url vai vir do heroku 
+        //1o DATABASE_URL = qualquer coisa
+        //2o passo DATABASE_URL = url definidada do heroku
+        const herokuPostgres = process.env.DATABASE_URL;
         //const herokuPostgres = 'postgres://gpvlucdtcjcksq:049a1ac611e6c3c39064540ad5a02bf014a3bfcafa1f95f4584a7c44ed2cde15@ec2-54-197-233-123.compute-1.amazonaws.com:5432/ddbtgigrvl401e';
         //definiimos as configurações da BAse de dados
         this.ImersaoNudesJS = new Sequelize(
